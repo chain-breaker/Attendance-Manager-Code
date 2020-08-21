@@ -6,7 +6,6 @@ import * as firebase from 'firebase';
 import { ScrollView } from 'react-native-gesture-handler';
 import TakeAttendance2 from './TakeAttendance2';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-//import { Icon } from 'react-native-paper/lib/typescript/src/components/Avatar/Avatar';
 import RNPickerSelect, { defaultStyles } from 'react-native-picker-select';
 
 
@@ -79,16 +78,17 @@ try{
     },
   ];
 
-
-  export default class TakeAttendance extends Component{
+  export default class EditAttendance extends Component{
     constructor(props){
       super(props)
       this.state = {
+        isPresent:true,
         date:"2020-05-15",
         section:"",
         semester:"",
         submitPressed:false,
-        loading:true
+        loading:true,
+        falseCourseSelected:false
         
         
       }
@@ -99,34 +99,38 @@ try{
         .then((data) => {
           this.data = data;
           this.setState({loading:false});
+          if(! (!! this.data)){
+            this.setState({isPresent:false});
+          }
         });
     }
     
     renderButtons(){
-      // var datas;
-      
-      //   const data = await firebase.database().ref('data/'+ this.state.semester+'/' + this.state.section ).once('value');
+     
 
         const datas = this.data.toJSON();
         console.log(datas);
-        // this.setState({loading:false});
-
-
-        // if(this.state.loading==false){
-         return( Object.keys(datas).map(( value) =>{
+        if( !(!! datas)){
+            return(<View><Text>NO COURSE IS REGISTERED FOR THIS SEMESTER AND SECTION</Text></View>)
+        }
+       
+         return( Object.keys(datas).map((value) =>{
           return(
               <Button 
               buttonStyle = {{marginTop:30, marginLeft:10,padding:15}}
               title={value} onPress={()=> {
-                this.props.navigation.navigate('Take Attendance 2', {date:this.state.date, name:value,semester:this.state.semester,section:this.state.section,data:datas});
+               const firstkey= Object.keys(datas[value])[0];
+
+                console.log(datas[value][firstkey][this.state.date]);
+                if(!! datas[value][firstkey][this.state.date])
+                this.props.navigation.navigate('Edit Attendance 2', {date:this.state.date, name:value,semester:this.state.semester,section:this.state.section,data:datas});
+                else{
+                    this.setState({falseCourseSelected:true})
+                }
               } }/>
           )
          }))
-        //  else {
-        //  return(
-        //   <View><Text>Loading</Text></View>
-        // )
-        //  }
+        
         
 
 
@@ -134,19 +138,20 @@ try{
   }
    
     render(){
-      return ( 
+      return (
         <ImageBackground 
             source = {require("./assets/bg3.png")}
             style = {{
-                      display:"flex",
-                      
+                      flex:1,
+                      //alignItems: 'stretch',
                       justifyContent: "space-between",
                       width: '100%',
                       height: '100%'}}>
+                        
                         <View style={{alignContent:"center"}}>
                          <Text style={{fontSize:20, marginLeft:"30%", marginTop:"20%"}}>Pick a date</Text> 
-                        
-                        <DatePicker
+          
+        <DatePicker
           style={{width: "40%", marginLeft:"30%" }}
           date={this.state.date}
           mode="date"
@@ -262,23 +267,16 @@ try{
           </View><Button 
         buttonStyle = {{backgroundColor: '#694fad', marginTop: 10}}
         title="SUBMIT" onPress={()=>{this.handleSubmit.call(this);
-        this.setState({submitPressed:true})} /* ()=>{
-          this.renderButtons.bind(this);
-          this.setState({submitPressed:true});
-          
-        } */}/>
-        <View style={{display:"flex",
+        this.setState({submitPressed:true})} }/>
+        <View  style={{display:"flex",
       flexDirection:"row",
       flexWrap:"wrap"}}>
         {this.state.submitPressed && (this.state.loading ? <View><Text>Loading</Text></View> : this.renderButtons.call(this))}
-        
+        {this.state.falseCourseSelected && <View><Text>Attendance Record with this date doesnt exist</Text></View>}
         </View>
-          
-                        </View>
-
-                        
-                      </ImageBackground>
-
+            
+            </View>
+            </ImageBackground>
       )
     }
     

@@ -38,7 +38,7 @@ class Chatbot extends Component {
 		
 			if(result.queryResult.intent.displayName == "Timetable"){
 				for(var i=0;i< data.length;i++ ){
-					if(data[i].id == result.queryResult.parameters.reqtype && data[i].semester == result.queryResult.parameters.Semester)
+					if(data[i].id == result.queryResult.parameters.reqtype && data[i].semester == result.queryResult.parameters.Semester && data[i].Branch == result.queryResult.parameters.branch)
 				      text=data[i].image;
 				}
 			}

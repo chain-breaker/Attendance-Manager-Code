@@ -1,0 +1,12 @@
+export const dialogflowConfig ={
+  "type": "service_account",
+  "project_id": "classmate-clcvmr",
+  "private_key_id": "59f1f923f85ece69d968b6a01e94a5fe1ab2e72e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCydKYkFue0BcWP\nw37Cpc34cV9dQnmlDk6dk29oHaIZuc0GI9xwS7d6EkgNm6tYY4eIwzD/en5O2szX\nT7pQDNU1lHyVd//Hb/21nEVvxltSH4A9EHZViyiq3d04nnRlokzBGWchgh/KATCC\nAXDb37nSNbsxcWC5zXg1XePtvK+Wk6eFuKPh9/3CekIaSlOgEctNciZUkGgiE6ZR\noIXxZf9IdTXGcUDz6oBBZuXHp+hGLckCOpCV354tatd1fAqnjx0AA7zUZLSSFsse\nNeU8gbiFsgFnXsp1iATwH3almQBy9ZytgWECuh8V4JjYggYTOnsTKKbzgIZuVSCP\n4w1GdUnxAgMBAAECggEAGNMe0IrqKRIbeUQIBHJVvH+i9UF71BDxMTzzBMAIjn0Z\nDwdakTmLOL1FzjTPSXCxCD6k+Ik0/Gm2EKar45phZ350NUO37mm/GK44P5QPnJU6\nvOPnHj/JRLmv3kI2rXO+KyeKP/BO1UZElfU22rNc8WfdlkNwIfC6Dex1elsi7vZ4\nMf7vR8ijoAS139JWDRyYRwULojxYvWUPLeCBQ1pf11II6F938h8hubtc1mpv6/Bq\nHbd8+KQ1PTo1e0g3Yil81EPBZetMluQUazyIXh6BzpX17bG/1Ei/jJNZOp1Pr684\nST6EuuJqxJTWMvNXviJvVVMZHrbrZvp0j3U79KDxlQKBgQDnbCXAIERerM7RcE0B\nDeOzmMqoc0EXT+DIIPg+fGaxHSOL7UMvAMalwkCW9M8QpJmhGHjUgK3CGTi5cKj5\nzjO2pmflv9i5fcei9JrwMLTbK6kIVzjXIXIFyWianMQK+6rIAcNT/eezMxvtaVnE\nd5pts3vwbechK4Mc+IIce0vCFQKBgQDFaHRS21WG/Mf+XqiWTxQO8QK0tK8XQ5P8\n+YmswNS696l2uyFwan4g6VxGrCxEHYsVn0kDQWGD3ed5ab8BQQEtrVk3IXGwwoHD\nQSiulrID2qKAOs3XXBKTWW4S+z84SGwOtONSLRBR5cxHTmaKKvED7KrMTaX44aOM\nGToqD1nLbQKBgEZyZ3N63xUq6bJbyzUc80nCoz5wB0p/aF/DmY379I7J3f5EdYUj\naVUgMuVBFJ9uW83sUyvtF/fUEa5xmx6gJKHfOhV4NxMQNOtoJpojWYq2WbhOROFI\nLxuP2iXmvs7RGYXU847n5dZpIoE85rSl6/6k+n+QFSHFyx3QkFr3NXKZAoGBAMEt\nz6+Jje+0DO5CqY21wvZAKZq2uiT076v+chjI9yQj2gUjaLy+qcEBPFi4gfUCSCoX\nnvZ9k7TcgXlR3yWV/FY7rfOCWeRU43E0oWAAfiHBYYZEhUy7gD4LpOkUTzB/xqa5\noz62dKMAUuBwu214SjTB8/5L+iBMhqRBx6aDMScdAoGAVhcESn2CSaNl7Rbbye89\na0HA3hIxbsNoitiKXrQcOVSjr/waW0/mQeFJWy/XDkXGT3p3mcYLCFNwWx2/zlr6\n/riYe+xJxiTiQNR61aWrfxMgDfVW0gfHs0AHy/dyMLsnjuRFceOlAReDAq2i/eST\nNQAGZlKYcfKB/EcXtHsPiwo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "dialogflow-hycgpm@classmate-clcvmr.iam.gserviceaccount.com",
+  "client_id": "106278999928943922947",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dialogflow-hycgpm%40classmate-clcvmr.iam.gserviceaccount.com"
+};

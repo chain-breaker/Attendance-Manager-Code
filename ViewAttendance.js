@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 
 import { Input , Button} from 'react-native-elements';
 import * as firebase from 'firebase';
@@ -44,9 +44,17 @@ var firebaseConfig = {
               
               return( Object.keys(this.datas).map(( value) =>{
                   return(
-                <Button title={value} onPress={()=> {
+                    <View
+                    
+                    style = {{
+                      }}>
+                        <Button 
+                        buttonStyle = {{backgroundColor: '#694fad', marginBottom: 10}}
+                        title={value} onPress={()=> {
                   this.props.navigation.navigate('Table', {attendancedata:this.datas[value]});
                 } }/>
+                    </View>
+                
                   )
                 })
               )
@@ -55,15 +63,28 @@ var firebaseConfig = {
 
           render() {
 
+          
+
             return (
-                <View style={styles.container}>
-            <Text style={styles.header}>ViewAttendance</Text>
+              <ImageBackground 
+            source = {require("./assets/bg2.png")}
+            style = {{
+                      flex:1,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '100%',
+                      height: '100%'}}>
+                        <View style={styles.container}>
+            <Text style={styles.header}>View Attendance</Text>
               
             { this.state.fetched ? this.RenderButtons.call(this) : <Text>Loading</Text>}
 
     
           
                 </View>
+
+                      </ImageBackground>
+                
             );
 
         }

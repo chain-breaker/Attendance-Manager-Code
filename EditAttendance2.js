@@ -20,13 +20,13 @@ try{
   }
   catch(err){
     console.log("error");
-    //Urhacked@01
   }
-export default class TakeAttendance2 extends Component{
+export default class EditAttendance2 extends Component{
     constructor(props){
         super(props)
         this.state = {
           submitPressed:false,
+          loaded:false,
           datas:{},
           checkedItems: {}
       }
@@ -34,17 +34,28 @@ export default class TakeAttendance2 extends Component{
     componentDidMount(){
         this.parameter = this.props.route.params;
         const data = this.parameter.data[this.parameter.name];
-        Object.keys(data).forEach((value)=>{
-            firebase.database().ref('data/'+ this.parameter.semester+'/' + this.parameter.section  + '/' + this.parameter.name + '/'+ value).update({
-                [this.parameter.date]:"A"
-            })
+        Object.keys(data).forEach(value=>{
+            if(data[value][this.parameter.date].localeCompare('P') == 0)
+            this.setState((prevState)=>{
+                const checkedItems = prevState.checkedItems;
+                checkedItems[value] = true;
+                return  prevState
 
+            })
+           
+            else
+            this.setState((prevState)=>{
+                const checkedItems = prevState.checkedItems;
+                checkedItems[value] = false;
+                return  prevState
+
+            })
         })
     }
-   createTwoButtonAlert = () =>
+    createTwoButtonAlert = () =>
     Alert.alert(
       "Attendance update",
-      "Attendance has been taken",
+      "Attendance has been updated",
       [
         {
           text: "Cancel",
@@ -67,13 +78,14 @@ export default class TakeAttendance2 extends Component{
         this.setState({submitPressed:true});
         this.createTwoButtonAlert();
         this.props.navigation.navigate('Faculty Options');
-        
 
     }
    
      renderEntries(){
        
-        this.alternate=true;//"#acddfa";
+        
+        
+       this.alternate=true;//"#acddfa";
         this.parameter = this.props.route.params;
        const data = this.parameter.data[this.parameter.name];
     const first= "IIT";
@@ -85,8 +97,9 @@ export default class TakeAttendance2 extends Component{
         diff= (parseInt(this.parameter.semester) +1)/2;
     const year= 2020 - diff;
 
+        
        
-        // console.log(this.state.checkedItems);
+        console.log(this.state.checkedItems);
         return(
             Object.keys(data).map((value)=>{
                 this.alternate=!this.alternate;
@@ -98,21 +111,21 @@ export default class TakeAttendance2 extends Component{
                 borderBottomEndRadius:2,
                 alignItems:"center",
                 backgroundColor: this.color}}>
-                    <View style={{display:"flex",
+                     <View style={{display:"flex",
                 alignItems:"center"}}><View><Text style={{fontSize:20}}>{first +year+ (("00"+ value).slice(-3))}</Text></View></View>
-                    <View>
-                    <CheckBox checked={!! this.state.checkedItems[value]}
+                 <View>
+                 <CheckBox checked={ !! this.state.checkedItems[value]}
                         onPress={ ()=>{
                             
                             this.setState(oldState => {
                                 const checkedItems = oldState.checkedItems;
                                 checkedItems[value] = !checkedItems[value];
-                                // oldState.checkedItems = newCheckedItems;
+                               
                                 return oldState;
                             })
                         }}
                         />
-                    </View>
+                 </View>
                    
                     
                     </View>
@@ -124,8 +137,7 @@ export default class TakeAttendance2 extends Component{
     render(){
         
         return(
-            <View >
-               
+            <View>
                 <View style={{height: "94.5%"}}>
                 <ScrollView >
                     {this.renderEntries.call(this)}

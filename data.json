@@ -1,0 +1,54 @@
+[
+	{
+		"id": "timetable",
+		"semester": "2",
+		"Branch":"IT",
+		"image":"https://i.ibb.co/Wg08FLz/Btech-2nd-sem.png"
+			
+	},
+	{
+		"id": "timetable",
+		"semester": "4",
+		"Branch":"IT",
+		"image":"https://i.ibb.co/5cqYsTJ/Btech-4th-sem.png"
+	},
+	{
+		"id": "timetable",
+		"semester": "6",
+		"Branch":"IT",
+		"image":"https://i.ibb.co/4K8jPQr/Btech-6th-sem.png"
+			
+	},
+	{
+		"id": "timetable",
+		"semester": "2",
+		"Branch":"ECE",
+		"image":"https://i.ibb.co/PmRCnZ6/Btech-2nd-sem-ECE.png"
+	},
+	{
+		"id": "timetable",
+		"semester": "4",
+		"Branch":"ECE",
+		"image":"https://i.ibb.co/KDx1zXj/Btech-ECE-4th-sem.png"
+	},
+	{
+		"id": "timetable",
+		"semester": "6",
+		"Branch":"ECE",
+		"image":"https://i.ibb.co/0JS8Pwj/Btech-ECE-6th-sem.png"
+	},
+	{
+		"id": "Academic Calender",
+		"semester": "2",
+		"image":"https://i.ibb.co/68N1YFw/Screenshot-141.png"
+	},
+	{
+		"id": "Academic Calender",
+		"semester": "4",
+		"image":"https://i.ibb.co/68N1YFw/Screenshot-141.png"
+	},
+	{
+		"id": "Faculty List",
+		"image":"https://i.ibb.co/dWWTvv6/Faculty-list.png"
+	}
+]

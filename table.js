@@ -81,7 +81,7 @@ export default class AttendaceTable extends Component {
 
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#FFF0F5' },
-  header: { height: 50,  width: 400, backgroundColor: '#FF0000' },
+  header: { height: 50,  width: 400, backgroundColor: '#73b4ff' },
   text: { textAlign: 'center', fontWeight: '100' },
   dataWrapper: { marginTop: -1 },
   row: { height: 40, width: 400, backgroundColor: '#E6E6FA' , }
